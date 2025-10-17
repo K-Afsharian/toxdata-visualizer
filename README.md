@@ -64,7 +64,6 @@ Your CSV file should follow this structure:
 | `Dose_mg_kg` | Number | Dose in mg/kg | No |
 | `Mean_Cmax_ng_ml` | Number | Mean Cmax measurement | No |
 | `Reduced_bw` | Number | Reduced body weight (%) | No |
-| `Hunched_posture` | Number | Hunched posture (%) | No |
 | ...and other numerical columns | | | |
 
 **Example CSV:**
