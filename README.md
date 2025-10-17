@@ -24,12 +24,7 @@ A React TypeScript application for interactive data visualization with scatter p
 - **Sex Differentiation**: Option to differentiate data by sex with unique shapes and line styles
 - **Global Domain Control**: Consistent axis ranges across all charts
 - **Interactive Tooltips**: Detailed hover information with formatted values
-
-### ⚡ **User Experience**
 - **Expandable Charts**: Click to expand any chart to full-screen modal view
-- **Responsive Design**: Works on desktop and mobile devices
-- **Error Handling**: Clear error messages for invalid data or configurations
-- **Loading States**: Visual feedback during data processing
 
 ## Quick Start
 
