@@ -1,0 +1,302 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 20px; /* Ensures some space around the main container */
+  background-color: #f4f7f6;
+  color: #333;
+  box-sizing: border-box; /* Consistent box model */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 95%; /* Use a larger percentage of the viewport width */
+  max-width: 1800px; /* Increased maximum possible width, adjust as you see fit */
+  margin: 0 auto; /* Center the container within the body's padding */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Consistent box model */
+}
+
+.controls-section,
+.chart-section,
+.table-section {
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-sizing: border-box; /* Consistent box model */
+}
+
+h1,
+h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+/* Titles within specific containers like facets */
+.time-chart-container h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.file-uploader,
+.filters,
+.chart-config {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  box-sizing: border-box; /* Consistent box model */
+}
+
+.file-uploader label,
+.filters label,
+.chart-config label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.file-uploader input[type="file"],
+.filters select,
+.filters input[type="text"],
+.filters input[type="number"],
+.chart-config select {
+  width: 100%; /* Let flexbox handle sizing in filter-item, remove calc */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Already here, good */
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.filter-item {
+  flex: 1 1 220px; /* Grow, shrink, slightly increased basis for wider layout */
+  min-width: 200px; /* Prevent items from becoming too small */
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.chart-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens / narrower containers */
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fadbd8;
+  padding: 10px;
+  border: 1px solid #f1948a;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.loading-message {
+  color: #3498db;
+  font-style: italic;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  font-size: 0.9em;
+  word-break: break-word; /* Help prevent table overflow with long content */
+}
+
+th {
+  background-color: #ecf0f1;
+  position: sticky;
+  top: 0;
+  z-index: 1; /* Ensure header stays above scrolling content */
+}
+
+.table-container {
+  max-height: 400px;
+  overflow: auto; /* Changed to auto for both x and y scroll if needed */
+  border: 1px solid #ddd;
+  width: 100%;
+}
+
+/* Tooltip Style for Recharts */
+.recharts-tooltip-wrapper {
+  background: #fff !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+  /* Ensure tooltip is above other elements */
+  z-index: 1000 !important;
+}
+
+.tooltip-label {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px !important;
+}
+
+.tooltip-item {
+  color: #555;
+}
+
+/* Styles for Faceted Charts Container */
+.charts-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fdfdfd;
+  min-height: 380px; /* Ensure container has some height even if no charts */
+}
+
+.time-chart-container {
+  flex: 0 0 auto;
+  width: 450px;
+  min-width: 400px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 0; /* Removed, gap in parent handles spacing */
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex; /* Added for centering content if chart doesn't render */
+  flex-direction: column; /* Stack title and chart vertically */
+}
+
+/* Ensure responsive container inside takes available space within the faceted chart */
+.time-chart-container .recharts-responsive-container {
+  width: 100% !important;
+  height: 300px !important; /* Fixed height for individual faceted charts */
+}
+
+/* ... existing styles ... */
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.chart-header h4 {
+  margin: 0; /* Remove default margin from h4 */
+}
+
+.expand-chart-button {
+  padding: 4px 8px;
+  font-size: 0.8em;
+  background-color: #6c757d; /* Bootstrap secondary-like color */
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.expand-chart-button:hover {
+  background-color: #5a6268;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75); /* Darker overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure modal is on top */
+  padding: 20px; /* Add padding for smaller screens */
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%; /* Responsive width */
+  max-width: 1000px; /* Max width for the modal chart */
+  height: auto; /* Adjust based on content */
+  max-height: 90vh; /* Max height, with viewport consideration */
+  overflow-y: auto; /* Scroll if content overflows */
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px; /* Larger close button */
+  font-weight: bold;
+  color: #777;
+  cursor: pointer;
+  line-height: 1;
+  padding: 5px;
+}
+.modal-close-button:hover {
+  color: #333;
+}
+
+/* Axis Label styling if needed */
+.recharts-label {
+  font-size: 0.9em;
+  fill: #555; /* Color for axis labels */
+}
+
+/* Adjust Recharts default bottom margin if XAxis labels are still tight */
+.recharts-xAxis .recharts-label {
+  /* transform: translateY(10px); /* Example to push X-axis label down slightly */
+}
